@@ -1,0 +1,64 @@
+### Register
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "alice@example.com",
+  "username": "alice",
+  "password": "Password123!"
+}
+
+### Login
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "alice@example.com",
+  "password": "Password123!"
+}
+
+### Refresh
+POST http://localhost:3000/api/auth/refresh
+Content-Type: application/json
+
+{
+  "refresh_token": "<REFRESH_TOKEN>"
+}
+
+### Logout
+POST http://localhost:3000/api/auth/logout
+Content-Type: application/json
+
+{
+  "refresh_token": "<REFRESH_TOKEN>"
+}
+
+### Me (get profile)
+GET http://localhost:3000/api/auth/me
+Authorization: Bearer <ACCESS_TOKEN>
+
+
+### Reset request
+POST http://localhost:3000/api/auth/reset/request
+Content-Type: application/json
+
+{ "email": "alice@example.com" }
+
+### Reset confirm
+POST http://localhost:3000/api/auth/reset/confirm
+Content-Type: application/json
+
+{ "token": "<RESET_TOKEN>", "new_password": "NewP@ssw0rd" }
+
+### Create role (admin)
+POST http://localhost:3000/api/auth/roles
+Content-Type: application/json
+
+{ "name": "admin", "description": "Administrator" }
+
+### Assign role to user (admin)
+POST http://localhost:3000/api/auth/users/<USER_ID>/roles
+Content-Type: application/json
+
+{ "role": "admin" }
+
